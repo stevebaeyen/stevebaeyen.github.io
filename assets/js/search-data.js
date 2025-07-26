@@ -402,18 +402,18 @@ ninja.data = [{
           title: 'Launch of my new blog',
           description: "",
           section: "News",},{
-        id: 'social-bluesky',
-        title: 'Bluesky',
-        section: 'Socials',
-        handler: () => {
-          window.open("https://bsky.app/profile/stevebaeyen.bsky.social", "_blank");
-        },
-      },{
         id: 'social-email',
         title: 'email',
         section: 'Socials',
         handler: () => {
           window.open("mailto:%73%74%65%76%65.%62%61%65%79%65%6E@%69%6C%76%6F.%76%6C%61%61%6E%64%65%72%65%6E.%62%65", "_blank");
+        },
+      },{
+        id: 'social-bluesky',
+        title: 'Bluesky',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://bsky.app/profile/stevebaeyen.bsky.social", "_blank");
         },
       },{
         id: 'social-linkedin',
@@ -428,6 +428,13 @@ ninja.data = [{
         section: 'Socials',
         handler: () => {
           window.open("https://orcid.org/0000-0002-7192-2403", "_blank");
+        },
+      },{
+        id: 'social-researchgate',
+        title: 'ResearchGate',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://www.researchgate.net/profile/Steve-Baeyen/", "_blank");
         },
       },{
         id: 'social-rss',
