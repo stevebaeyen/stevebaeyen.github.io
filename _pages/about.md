@@ -6,7 +6,7 @@ subtitle: my bacterial bio-informatics blog for plant health
 
 profile:
   align: right
-  image: prof_pic.jpg
+  image: /assets/img/prof_pic.jpg
   image_circular: false # crops the image to make it circular
   more_info: >
     <p>ILVO - Plant Sciences Unit - Plant Health</p> 
