@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Launch of the new blog
+Launch of my new blog
