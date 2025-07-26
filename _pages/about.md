@@ -29,13 +29,3 @@ latest_posts:
 ---
 
 I am a passionate bioinformatician at [ILVO](https://www.ilvo.vlaanderen.be/en/) (Flanders Research Institute for Agriculture, Fisheries and Food) and the EU Reference Laboratory for bacterial plant diseases. My work focuses on bacterial genomics for plant health, using high-throughput sequencing, artificial intelligence, and advanced computational tools. I develop robust pipelines for genomic data analysis, combining Linux shell scripting, R, Python and Snakemake. My research involves designs for pathogen detection, phylogenomics, genotyping, and comparative genomics, with the goal of accelerating discoveries in phytobacterial research and supporting sustainable plant health. By making this blog, i hope to help early-career researches and cross-disciplinary collaborators, believing that sharing knowledge and tools is essential for advancing science and technology.
-
-{% include news.liquid limit=true %}
-
-{% if page.selected_papers %}
-  {% include publications.html %}
-{% endif %}
-
-{% if page.social %}
-  {% include social.html %}
-{% endif %}
