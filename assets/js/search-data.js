@@ -416,6 +416,13 @@ ninja.data = [{
           window.open("https://bsky.app/profile/stevebaeyen.bsky.social", "_blank");
         },
       },{
+        id: 'social-github',
+        title: 'GitHub',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://github.com/stevebaeyen", "_blank");
+        },
+      },{
         id: 'social-linkedin',
         title: 'LinkedIn',
         section: 'Socials',
