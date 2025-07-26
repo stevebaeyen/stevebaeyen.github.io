@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: my bacterial bio-informatics blog for plant health
+subtitle: Science, Technology and AI enthousiast, dad, sensei & coffee lover.
 
 profile:
   align: right
@@ -28,6 +28,14 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-My name is Steve Baeyen, and I am a bioinformatician at [ILVO](www.ilvo.vlaanderen.be) (Flanders Research Institute for Agriculture, Fisheries and Food) and the EU Reference Laboratory for bacterial diseases of plants. I have expertise in high-throughput sequencing technologies, and I specialise in bacterial genomics for plant health with the help of artificial intelligence.
-The primary focus of my research endeavours lies in the utilisation of state-of-the-art computational methodologies to facilitate a comprehensive understanding of bacterial pathogens that affect plant health. This involves the development of advanced detection systems that are capable of accurately identifying these pathogens and classifying them using sophisticated evolutionary analysis techniques such as phylogenomics, genotyping, and comparative genomics. The primary focus of my research is the development of robust analytical pipelines in Snakemake for the processing of genomic data, utilising a combination of Linux shell scripting, R, and Python.
-The integration of artificial intelligence with established bioinformatics methodologies is intended to expedite discoveries in the domain of phytobacterial research, thereby contributing to the advancement of sustainable plant health.
+I am a passionate bioinformatician at ILVO (Flanders Research Institute for Agriculture, Fisheries and Food) and the EU Reference Laboratory for bacterial plant diseases. My work focuses on bacterial genomics for plant health, using high-throughput sequencing, artificial intelligence, and advanced computational tools. I develop robust pipelines for genomic data analysis, combining Linux shell scripting, R, Python and Snakemake. My research involves designs for pathogen detection, phylogenomics, genotyping, and comparative genomics, with the goal of accelerating discoveries in phytobacterial research and supporting sustainable plant health. By making this blog, i hope to help early-career researches and cross-disciplinary collaborators, believing that sharing knowledge and tools is essential for advancing science and technology.
+
+{% include announcements.html %}
+
+{% if page.selected_papers %}
+  {% include publications.html %}
+{% endif %}
+
+{% if page.social %}
+  {% include social.html %}
+{% endif %}
