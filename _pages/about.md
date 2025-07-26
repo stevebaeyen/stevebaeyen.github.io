@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: Science, Technology and AI enthousiast, dad, sensei & coffee lover.
+subtitle: Science, Technology and AI enthousiast, father, sensei & coffee lover.
 
 profile:
   align: right
@@ -10,7 +10,7 @@ profile:
   image_circular: false # crops the image to make it circular
   more_info: >
     <p>ILVO - Plant Sciences Unit - Plant Health</p> 
-    <p>Burgemeester van Gansberghelaan 96</p>
+    <p>Burgemeester Van Gansberghelaan 96</p>
     <p>9820 Merelbeke-Melle</p>
     <p>Belgium</p>
 
