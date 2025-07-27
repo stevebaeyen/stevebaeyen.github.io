@@ -2,7 +2,7 @@
 layout: post
 title: "From Bash to Copilot: My Bioinformatics Terminal Workflow"
 author: Steve Baeyen
-date: 2025-07-26
+date: 2025-07-27
 categories: [bioinformatics, terminal]
 tags: [WSL, tmux, vscode, github-copilot, productivity, linux]
 description: "How I use WSL, tmux, SSH, VSCode, and GitHub Copilot to streamline bioinformatics research and development."
@@ -10,6 +10,7 @@ description: "How I use WSL, tmux, SSH, VSCode, and GitHub Copilot to streamline
 
 ## 🧬 Introduction
 
+Welcome to my latest post on bioinformatics workflows! As a researcher, I often find myself or PhD students juggling large datasets, remote compute resources, and various command-line tools. My terminal setup has evolved to meet these challenges head-on, allowing me to work efficiently and reproducibly.
 Efficient command-line workflows are critical in bioinformatics, where data is large, compute is remote, and tools are often UNIX-native. Over time, I've developed a terminal setup that allows me to:
 
 - Work on a Windows machine using Linux tools via **WSL**
@@ -17,7 +18,7 @@ Efficient command-line workflows are critical in bioinformatics, where data is l
 - Write and edit scripts seamlessly with **VSCode**
 - Leverage **GitHub Copilot** for fast prototyping and pipeline development
 
-This post outlines my setup and practical use cases, aimed at researchers looking to increase productivity and reproducibility.
+This post outlines my setup and some practical use cases, aimed at researchers looking to increase productivity and reproducibility.
 
 ---
 
