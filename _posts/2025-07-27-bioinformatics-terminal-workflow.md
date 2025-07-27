@@ -31,7 +31,7 @@ The **Windows Subsystem for Linux (WSL2)** is a game-changer for bioinformatics 
 It's ideal for combining GUI apps (e.g., VSCode, Excel) with command-line tools (e.g., `snakemake`, `blast`, `samtools`). You can install WSL2 by following the [official guide](https://learn.microsoft.com/en-us/windows/wsl/install) or even better through the Microsoft Store. You can choose Ubuntu or any other preferred distribution. You can also access your windows files from WSL2 at `/mnt/c/` and see you WSL2 files in Windows in the windows file explorer.
 
 <p align="center">
-  <img src="/assets/img/WSL_Ubuntu.jpg" alt="Description" style="width: 400px;" />
+  <img src="/assets/img/WSL_Ubuntu.jpg" alt="WSL from MS Store" style="width: 400px;" />
 </p>
 
 
@@ -116,8 +116,10 @@ If you want more inspiration and possibilities, check out [this link](https://tl
 `tmux` is essential for working over SSH, especially with flaky VPNs (or wifi, or network connectivity issues ). It allows persistent, detachable sessions.
 With `tmux`, I can start a session, run long jobs, and detach from it (I can even shutdown my laptop). If my VPN drops or I lose connection, I can simply reattach to the session without losing progress. You don't need to worry about losing your work if you get disconnected. Another advantage is that you can run multiple terminal windows in one SSH session, which is great for monitoring logs or running multiple commands simultaneously.
 
-![The tmux interface](/assets/img/tmux-panes.png)
 
+<p align="center">
+  <img src="/assets/img/tmux-panes.png" alt="tmux view" style="width: 400px;" />
+</p>
 
 My `.tmux.conf` contains:
 
