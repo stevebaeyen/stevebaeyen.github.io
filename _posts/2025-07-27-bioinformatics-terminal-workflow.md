@@ -30,7 +30,10 @@ The **Windows Subsystem for Linux (WSL2)** is a game-changer for bioinformatics 
 
 It's ideal for combining GUI apps (e.g., VSCode, Excel) with command-line tools (e.g., `snakemake`, `blast`, `samtools`). You can install WSL2 by following the [official guide](https://learn.microsoft.com/en-us/windows/wsl/install) or even better through the Microsoft Store. You can choose Ubuntu or any other preferred distribution. You can also access your windows files from WSL2 at `/mnt/c/` and see you WSL2 files in Windows in the windows file explorer.
 
-![Ubuntu in the Microsoft Store](/assets/img/WSL_Ubuntu.jpg)
+<p align="center">
+  <img src="/assets/img/WSL_Ubuntu.jpg" alt="Description" style="width: 400px;" />
+</p>
+
 
 ### Oh My Bash Customization
 
@@ -41,8 +44,6 @@ I use [Oh My Bash](https://ohmybash.nntoan.com/) for a cleaner prompt and quick 
 Oh My Bash allows you to customize your terminal prompt with themes and plugins, making it visually appealing and functional. It supports various themes, including Powerline-style prompts, which are great for displaying Git status and other information. You can also activate plugins like tmux-autoattach, which automatically attaches to existing tmux sessions for remote SSH connections.
 
 Once Oh My Bash is installed , I also tweak my .bashrc to include useful aliases and functions. This makes my terminal experience more efficient and tailored to my workflow.
-
-
 
 Example `.bashrc` snippet:
 
@@ -56,6 +57,16 @@ alias la='ls -lah'
 alias gs='git status'
 alias act='conda activate'
 alias srunbio='srun --mem=32G --time=4:00:00 --pty bash'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias ..l='cd .. && ll'
+alias ...l='cd ../.. && ll'
+alias ....l='cd ../../.. && ll'
+alias pbzip2='pbzip2 -k -p32'
+function mcd { mkdir -p "$1" && cd "$1";}
+# USAGE: mdpdf document.md document.md.pdf to convert from markdown to pdf 
+alias mdpdf="pandoc -s -V geometry:margin=1in -V documentclass:article -V fontsize=12pt"
 
 # Prompt customization
 OSH_THEME="agnoster"
@@ -97,6 +108,8 @@ function pretty_tsv() {
     column -t -s $'\t' "$@" | less -F -S -X -K
 }
 ```
+
+If you want more inspiration and possibilities, check out [this link](https://tldp.org/LDP/abs/html/sample-bashrc.html) or
 ---
 
 ## 🧱 2. Terminal Multiplexing with `tmux`
