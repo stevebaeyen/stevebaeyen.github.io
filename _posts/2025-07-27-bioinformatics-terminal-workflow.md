@@ -109,7 +109,7 @@ function pretty_tsv() {
 }
 ```
 
-If you want more inspiration and possibilities, check out [this link](https://tldp.org/LDP/abs/html/sample-bashrc.html) or
+If you want more inspiration and possibilities, check out [this link](https://tldp.org/LDP/abs/html/sample-bashrc.html)
 ---
 
 ## 🧱 2. Terminal Multiplexing with `tmux`
