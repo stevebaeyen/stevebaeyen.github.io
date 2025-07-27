@@ -63,8 +63,7 @@ alias ....='cd ../../..'
 alias ..l='cd .. && ll'
 alias ...l='cd ../.. && ll'
 alias ....l='cd ../../.. && ll'
-alias pbzip2='pbzip2 -k -p32'
-function mcd { mkdir -p "$1" && cd "$1";}
+alias l='ls -l --color=auto'
 # USAGE: mdpdf document.md document.md.pdf to convert from markdown to pdf 
 alias mdpdf="pandoc -s -V geometry:margin=1in -V documentclass:article -V fontsize=12pt"
 
