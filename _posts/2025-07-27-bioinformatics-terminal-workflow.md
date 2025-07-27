@@ -10,7 +10,7 @@ description: "How I use WSL, tmux, SSH, VSCode, and GitHub Copilot to streamline
 
 ## 🧬 Introduction
 
-Welcome to my latest post on bioinformatics workflows! As a researcher, I often find myself or PhD students juggling large datasets, remote compute resources, and various command-line tools. My terminal setup has evolved to meet these challenges head-on, allowing me to work efficiently and reproducibly.
+Welcome to my latest post on bioinformatics workflows! As a researcher, I often find myself or PhD students juggling with large datasets, remote compute resources, and various command-line tools. My terminal setup has evolved to meet these challenges head-on, allowing me to work efficiently and reproducibly.
 Efficient command-line workflows are critical in bioinformatics, where data is large, compute is remote, and tools are often UNIX-native. Over time, I've developed a terminal setup that allows me to:
 
 - Work on a Windows machine using Linux tools via **WSL**
@@ -18,7 +18,7 @@ Efficient command-line workflows are critical in bioinformatics, where data is l
 - Write and edit scripts seamlessly with **VSCode**
 - Leverage **GitHub Copilot** for fast prototyping and pipeline development
 
-This post outlines my setup and some practical use cases, aimed at researchers looking to increase productivity and reproducibility.
+This post outlines my setup and some practical use cases, aimed at researchers and biologists looking to increase productivity and reproducibility.
 
 ---
 
@@ -26,7 +26,7 @@ This post outlines my setup and some practical use cases, aimed at researchers l
 
 ### Why WSL2?
 
-The **Windows Subsystem for Linux (WSL2)** is a game-changer for bioinformatics on Windows. It provides a full Linux kernel, allowing me to run native Linux applications and tools directly on my Windows machine. This setup eliminates the need for dual-booting or using virtual machines, making it easy to switch between GUI applications and command-line tools.
+The **Windows Subsystem for Linux (WSL2)** is a game-changer for bioinformatics on Windows. It provides a full Linux kernel, allowing me to run native Linux applications and tools directly on my Windows machine (without the overhead of a VM). This setup eliminates the need for dual-booting or using virtual machines, making it easy to switch between GUI applications and command-line tools. With WSL2, you can even run Linux GUI applications alongside Windows apps, providing a seamless experience.
 
 It's ideal for combining GUI apps (e.g., VSCode, Excel) with command-line tools (e.g., `snakemake`, `blast`, `samtools`). You can install WSL2 by following the [official guide](https://learn.microsoft.com/en-us/windows/wsl/install) or even better through the Microsoft Store. You can choose Ubuntu or any other preferred distribution. You can also access your windows files from WSL2 at `/mnt/c/` and see you WSL2 files in Windows in the windows file explorer.
 
@@ -34,7 +34,7 @@ It's ideal for combining GUI apps (e.g., VSCode, Excel) with command-line tools 
 
 ### Oh My Bash Customization
 
-I use [Oh My Bash](https://ohmybash.nntoan.com/) for a cleaner prompt and quick aliases. It provides nice themes and useful aliases that speed up my workflow. I also customize my `.bashrc` to include aliases for common tasks, like clearing the screen or checking Git status.
+I use [Oh My Bash](https://ohmybash.nntoan.com/) for a cleaner prompt and quick aliases. It provides nice themes and useful aliases that speed up my workflow. I also customize my `.bashrc` to include aliases for common tasks, like clearing the screen, updating or checking Git status.
 
 ![Oh My Bash theme powerline-icon](/assets/img/omb_powerline.png)
 
@@ -102,7 +102,7 @@ function pretty_tsv() {
 ## 🧱 2. Terminal Multiplexing with `tmux`
 
 `tmux` is essential for working over SSH, especially with flaky VPNs (or wifi, or network connectivity issues ). It allows persistent, detachable sessions.
-With `tmux`, I can start a session, run long jobs, and detach from it (I van even shutdown my laptop). If my VPN drops or I lose connection, I can simply reattach to the session without losing progress. You don't need to worry about losing your work if you get disconnected. Another advantage is that you can run multiple terminal windows in one SSH session, which is great for monitoring logs or running multiple commands simultaneously.
+With `tmux`, I can start a session, run long jobs, and detach from it (I can even shutdown my laptop). If my VPN drops or I lose connection, I can simply reattach to the session without losing progress. You don't need to worry about losing your work if you get disconnected. Another advantage is that you can run multiple terminal windows in one SSH session, which is great for monitoring logs or running multiple commands simultaneously.
 
 ![The tmux interface](/assets/img/tmux-panes.png)
 
@@ -162,7 +162,7 @@ VSCode is my go-to editor because of:
 - Git integration
 - Remote extensions (`Remote - WSL`, `Remote - SSH`), see [this Youtube video](https://youtu.be/rh1Ag41J6IA?si=mioEBpVQzxEB_67m) to get started
 - Integrated terminal
-- Snippets and extensions for bioinformatics (e.g., Snakemake, Biopython
+- Snippets and extensions for bioinformatics (e.g., Snakemake, Biopython)
 - Code completion, syntax highlighting and debugging
 - Multi-language support
 I use the **Remote - WSL** extension to edit files directly in my WSL2 environment. This allows me to work with Linux tools while using a powerful GUI editor. For remote clusters, I use the **Remote - SSH** extension to connect and edit files directly on the server.
@@ -238,7 +238,7 @@ tmux new -s unicycler
 # Launch job
 unicycler -1 sample_R1.fastq -2 sample_R2.fastq -l sample_ONT.fastq -o unicycler_out
 
-# Monitor logs in tmux pane
+# Monitor logs in tmux pane (htop, tail -f, btop)
 ```
 
 I version my pipeline with `git`, and VSCode auto-syncs changes when working over SSH.
