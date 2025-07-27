@@ -37,7 +37,7 @@ Under the GDPR, you have the right to:
 - Withdraw your consent at any time
 - Object to or restrict processing
 
-To exercise these rights, please contact us at [your email address].
+To exercise these rights, please contact me at steve.baeyen@ilvo.vlaanderen.be.
 
 ## Data Retention
 
