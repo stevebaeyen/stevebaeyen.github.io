@@ -45,7 +45,7 @@ We retain your personal data only as long as necessary for the purposes describe
 
 ## Third-Party Services
 
-We use Buttondown to manage our newsletter subscriptions. Please refer to [Buttondown’s Privacy Policy](https://buttondown.email/privacy) for more information.
+We use Buttondown to manage our newsletter subscriptions. Please refer to [Buttondown’s Privacy Policy](https://buttondown.com/legal/privacy) for more information.
 
 ## Changes to This Policy
 
