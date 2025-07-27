@@ -26,16 +26,30 @@ This post outlines my setup and some practical use cases, aimed at researchers l
 
 ### Why WSL2?
 
-Windows Subsystem for Linux lets me use a full Ubuntu environment directly on my Windows machine without dual-booting. It's ideal for combining GUI apps (e.g., VSCode, Excel) with command-line tools (e.g., `snakemake`, `blast`, `samtools`).
+The **Windows Subsystem for Linux (WSL2)** is a game-changer for bioinformatics on Windows. It provides a full Linux kernel, allowing me to run native Linux applications and tools directly on my Windows machine. This setup eliminates the need for dual-booting or using virtual machines, making it easy to switch between GUI applications and command-line tools.
+
+It's ideal for combining GUI apps (e.g., VSCode, Excel) with command-line tools (e.g., `snakemake`, `blast`, `samtools`). You can install WSL2 by following the [official guide](https://learn.microsoft.com/en-us/windows/wsl/install) or even better through the Microsoft Store. You can choose Ubuntu or any other preferred distribution. You can also access your windows files from WSL2 at `/mnt/c/` and see you WSL2 files in Windows in the windows file explorer.
+
+![Ubuntu in the Microsoft Store](/assets/img/WSL_Ubuntu.jpg)
 
 ### Oh My Bash Customization
 
-I use [Oh My Bash](https://github.com/ohmybash/oh-my-bash) for a cleaner prompt and quick aliases.
+I use [Oh My Bash](https://ohmybash.nntoan.com/) for a cleaner prompt and quick aliases. It provides nice themes and useful aliases that speed up my workflow. I also customize my `.bashrc` to include aliases for common tasks, like clearing the screen or checking Git status.
+
+![Oh My Bash theme powerline-icon](/assets/img/omb_powerline.png)
+
+Oh My Bash allows you to customize your terminal prompt with themes and plugins, making it visually appealing and functional. It supports various themes, including Powerline-style prompts, which are great for displaying Git status and other information. You can also activate plugins like tmux-autoattach, which automatically attaches to existing tmux sessions for remote SSH connections.
+
+Once Oh My Bash is installed , I also tweak my .bashrc to include useful aliases and functions. This makes my terminal experience more efficient and tailored to my workflow.
+
+
 
 Example `.bashrc` snippet:
 
 ```bash
 # Bioinfo aliases
+alias upgrade="sudo apt update && sudo apt upgrade -y && sudo apt autoremove && sudo apt autoclean"
+alias refresh="source ~/.bashrc"
 alias q='exit'
 alias c='clear'
 alias la='ls -lah'
@@ -49,11 +63,49 @@ OSH_THEME="agnoster"
 
 You can also add function wrappers for reproducible workflows.
 
+```bash
+# as suggested by Mendel Cooper in "Advanced Bash Scripting Guide"
+extract () {
+   if [ -f $1 ] ; then
+       case $1 in
+        *.tar.bz2)      tar xvjf $1 ;;
+        *.tar.gz)       tar xvzf $1 ;;
+        *.tar.xz)       tar Jxvf $1 ;;
+        *.bz2)          pbzip2 -d -p32 $1 ;;
+        *.rar)          unrar x $1 ;;
+        *.gz)           unpigz -p 32  $1 ;;
+        *.tar)          tar xvf $1 ;;
+        *.tbz2)         tar xvjf $1 ;;
+        *.tgz)          tar xvzf $1 ;;
+        *.zip)          unzip $1 ;;
+        *.Z)            uncompress $1 ;;
+        *.7z)           7z x $1 ;;
+        *)              echo "don't know how to extract '$1'..." ;;
+       esac
+   else
+       echo "'$1' is not a valid file!"
+   fi
+}
+# make a directory and cd into it
+function mcd { mkdir -p "$1" && cd "$1";}
+# Function to pretty-print CSV files in terminal
+function pretty_csv {
+    column -t -s, "$@" | less -F -S -X -K
+}
+# Function to pretty-print TSV files in terminal
+function pretty_tsv() {
+    column -t -s $'\t' "$@" | less -F -S -X -K
+}
+```
 ---
 
 ## 🧱 2. Terminal Multiplexing with `tmux`
 
-`tmux` is essential for working over SSH, especially with flaky VPNs. It allows persistent, detachable sessions.
+`tmux` is essential for working over SSH, especially with flaky VPNs (or wifi, or network connectivity issues ). It allows persistent, detachable sessions.
+With `tmux`, I can start a session, run long jobs, and detach from it (I van even shutdown my laptop). If my VPN drops or I lose connection, I can simply reattach to the session without losing progress. You don't need to worry about losing your work if you get disconnected. Another advantage is that you can run multiple terminal windows in one SSH session, which is great for monitoring logs or running multiple commands simultaneously.
+
+![The tmux interface](/assets/img/tmux-panes.png)
+
 
 My `.tmux.conf` contains:
 
@@ -108,8 +160,12 @@ Pro tip: use `autossh` for auto-reconnect.
 VSCode is my go-to editor because of:
 
 - Git integration
-- Remote extensions (`Remote - WSL`, `Remote - SSH`)
-- LSP-based Python + R completion
+- Remote extensions (`Remote - WSL`, `Remote - SSH`), see [this Youtube video](https://youtu.be/rh1Ag41J6IA?si=mioEBpVQzxEB_67m) to get started
+- Integrated terminal
+- Snippets and extensions for bioinformatics (e.g., Snakemake, Biopython
+- Code completion, syntax highlighting and debugging
+- Multi-language support
+I use the **Remote - WSL** extension to edit files directly in my WSL2 environment. This allows me to work with Linux tools while using a powerful GUI editor. For remote clusters, I use the **Remote - SSH** extension to connect and edit files directly on the server.
 
 I often run:
 ```bash
@@ -133,6 +189,10 @@ code --remote ssh-remote+hpc /data/myproject
 }
 ```
 
+My VSCode setup:
+
+![VSCode with Remote SSH](/assets/img/VSCode.jpg)
+
 ---
 
 ## 🤖 5. GitHub Copilot for Code Assistance
@@ -142,6 +202,12 @@ I use [GitHub Copilot](https://github.com/features/copilot) within VSCode to spe
 - Bash scripts
 - Snakemake rules
 - Python functions
+- R scripts
+- port from other languages (for example, converting a Perl script to Python)
+
+Copilot suggests code snippets based on context, which is especially useful for repetitive tasks or boilerplate code. It can help you quickly prototype functions, write tests, or even generate documentation.
+
+Even the free tier of Copilot is quite powerful (and in a lot of cases enough for non-developers), providing context-aware suggestions that can save time on routine coding tasks. It learns from your coding style and adapts to your specific needs, making it a valuable tool for bioinformatics workflows.
 
 ### Real example:
 I start typing:
@@ -151,6 +217,7 @@ def parse_gff(file):
 Copilot suggests a full parser using Biopython. I tweak it for my genome annotation workflow.
 
 While Copilot isn't perfect (especially on biological assumptions), it cuts down repetitive coding time significantly.
+You can also use Copilot to generate documentation for your scripts or functions, which is great for reproducibility and sharing your work with others. It can help you write clear and concise comments, docstrings, and even README files for your projects.
 
 ---
 
@@ -185,12 +252,12 @@ This terminal setup has made my work more efficient and reproducible. Key takeaw
 - Use **WSL2** to unify Linux tooling on Windows
 - Leverage **tmux** and **SSH** to stay connected
 - Let **VSCode + Copilot** speed up coding without sacrificing control
+- Version control with **Git** for reproducibility
+- Customize your environment with tools like **Oh My Bash** for a better experience
+- Always document your workflows for future reference (let Copilot help with that too!)
 
-I plan to expand this setup further with:
-
-- Singularity/Apptainer container integration
-- Jupyter remote kernel support over SSH
-- Dotfile automation with `chezmoi`
+Happy coding!
+If you have any questions or suggestions, feel free to reach out. I'm always looking to improve my workflow and would love to hear about yours.
 
 ---
 
@@ -204,4 +271,3 @@ I plan to expand this setup further with:
 
 ---
 
-_Comments or suggestions? Reach out or fork my [dotfiles repo](#link-to-be-added)._
