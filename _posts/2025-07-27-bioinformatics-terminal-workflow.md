@@ -270,7 +270,8 @@ This terminal setup has made my work more efficient and reproducible. Key takeaw
 - Customize your environment with tools like **Oh My Bash** for a better experience
 - Always document your workflows for future reference (let Copilot help with that too!)
 
-Happy coding!
+Happy coding! 🧬🖥️
+
 If you have any questions or suggestions, feel free to reach out. I'm always looking to improve my workflow and would love to hear about yours.
 
 ---
