@@ -2,13 +2,9 @@
 layout: page
 permalink: /privacy/
 title: Privacy statement
-description: Privacy statement for the newsletter.
-nav: true
+description: Your privacy is important to us. This privacy statement explains how we collect, use, and protect your personal information in compliance with the General Data Protection Regulation (GDPR).
+nav: false
 ---
-
-# Privacy Statement
-
-Your privacy is important to us. This privacy statement explains how we collect, use, and protect your personal information in compliance with the General Data Protection Regulation (GDPR).
 
 ## Who We Are
 
