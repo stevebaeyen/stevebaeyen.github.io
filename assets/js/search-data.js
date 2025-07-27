@@ -49,6 +49,9 @@ ninja.data = [{
             },},{id: "news-launch-of-my-new-blog",
           title: 'Launch of my new blog',
           description: "",
+          section: "News",},{id: "news-my-first-blog-post-from-bash-to-copilot-is-live",
+          title: 'My first blog post ‘From Bash to Copilot’ is live! 🎉',
+          description: "",
           section: "News",},{
         id: 'social-email',
         title: 'email',
