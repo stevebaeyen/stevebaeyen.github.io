@@ -15,8 +15,7 @@
 <span class="nb">alias</span> ..l<span class="o">=</span><span class="s1">'cd .. &amp;&amp; ll'</span>
 <span class="nb">alias</span> ...l<span class="o">=</span><span class="s1">'cd ../.. &amp;&amp; ll'</span>
 <span class="nb">alias</span> ....l<span class="o">=</span><span class="s1">'cd ../../.. &amp;&amp; ll'</span>
-<span class="nb">alias </span><span class="nv">pbzip2</span><span class="o">=</span><span class="s1">'pbzip2 -k -p32'</span>
-<span class="k">function </span>mcd <span class="o">{</span> <span class="nb">mkdir</span> <span class="nt">-p</span> <span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span> <span class="o">&amp;&amp;</span> <span class="nb">cd</span> <span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span><span class="p">;</span><span class="o">}</span>
+<span class="nb">alias </span><span class="nv">l</span><span class="o">=</span><span class="s1">'ls -l --color=auto'</span>
 <span class="c"># USAGE: mdpdf document.md document.md.pdf to convert from markdown to pdf </span>
 <span class="nb">alias </span><span class="nv">mdpdf</span><span class="o">=</span><span class="s2">"pandoc -s -V geometry:margin=1in -V documentclass:article -V fontsize=12pt"</span>
 
