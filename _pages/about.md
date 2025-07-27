@@ -44,4 +44,7 @@ I am a passionate bioinformatician at [ILVO](https://www.ilvo.vlaanderen.be/en/)
   <p>
     <a href="https://buttondown.com/refer/stevebaeyen" target="_blank">Powered by Buttondown.</a>
   </p>
+  <p style="font-size: 0.9em; color: #666;">
+    By subscribing, you agree to our <a href="/privacy/">Privacy Statement</a>.
+  </p>
 </form>
