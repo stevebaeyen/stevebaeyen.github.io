@@ -37,7 +37,7 @@ I am a passionate bioinformatician at [ILVO](https://www.ilvo.vlaanderen.be/en/)
   onsubmit="window.open('https://buttondown.com/stevebaeyen', 'popupwindow')"
   class="embeddable-buttondown-form"
 >
-  <label for="bd-email">Enter your email get blog updates</label>
+  <label for="bd-email">Enter your email to get blog updates</label>
   <input type="email" name="email" id="bd-email" />
   
   <input type="submit" value="Subscribe" />
