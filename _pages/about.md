@@ -23,7 +23,7 @@ announcements:
   limit: 5 # leave blank to include all the news in the `_news` folder
 
 latest_posts:
-  enabled: false
+  enabled: true
   scrollable: true # adds a vertical scroll bar if there are more than 3 new posts items
   limit: 3 # leave blank to include all the blog posts
 ---
@@ -46,6 +46,7 @@ I am a passionate bioinformatician at [ILVO](https://www.ilvo.vlaanderen.be/en/)
   </p>
   <p style="font-size: 0.9em; color: #666;">
     By subscribing, you agree to our <a href="/privacy/">Privacy Statement</a>.
+    
     The opinions expressed are solely those of the author and do not represent the views or positions of ILVO.
   </p>
 </form>
