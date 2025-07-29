@@ -46,5 +46,6 @@ I am a passionate bioinformatician at [ILVO](https://www.ilvo.vlaanderen.be/en/)
   </p>
   <p style="font-size: 0.9em; color: #666;">
     By subscribing, you agree to our <a href="/privacy/">Privacy Statement</a>.
+    The opinions expressed are solely those of the author and do not represent the views or positions of ILVO.
   </p>
 </form>
