@@ -30,7 +30,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/cv/";
           },
-        },{id: "post-from-bash-to-copilot-my-bioinformatics-terminal-workflow",
+        },{id: "post-batch-in-silico-q-pcr-made-easy-with-run-epcr-py",
+        
+          title: "Batch In-Silico (q)PCR Made Easy with run_epcr.py",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/run-epcr/";
+          
+        },
+      },{id: "post-from-bash-to-copilot-my-bioinformatics-terminal-workflow",
         
           title: "From Bash to Copilot: My Bioinformatics Terminal Workflow",
         
