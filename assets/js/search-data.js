@@ -63,6 +63,9 @@ ninja.data = [{
           section: "News",},{id: "news-my-first-blog-post-from-bash-to-copilot-is-live",
           title: 'My first blog post ‘From Bash to Copilot’ is live! 🎉',
           description: "",
+          section: "News",},{id: "news-new-post-on-electronic-q-pcr-is-live",
+          title: 'New post on electronic (q)PCR is live! 🧬',
+          description: "",
           section: "News",},{
         id: 'social-email',
         title: 'email',
