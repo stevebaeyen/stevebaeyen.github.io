@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-My first blog post 'From Bash to Copilot' is live! 🎉 
+My first blog post ‘From Bash to Copilot’ is live! 🎉
