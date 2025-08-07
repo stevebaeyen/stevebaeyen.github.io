@@ -1,0 +1,45 @@
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const banner = document.getElementById("cookie-consent-banner");
+  const acceptBtn = document.getElementById("accept-cookies");
+  const declineBtn = document.getElementById("decline-cookies");
+
+  // Check if consent was already given
+  if (!localStorage.getItem("cookie_consent")) {
+    banner.style.display = "block";
+  }
+
+  // Accept cookies
+  acceptBtn.onclick = function() {
+    localStorage.setItem("cookie_consent", "accepted");
+    banner.style.display = "none";
+    loadGoogleAnalytics();
+  };
+
+  // Decline cookies
+  declineBtn.onclick = function() {
+    localStorage.setItem("cookie_consent", "declined");
+    banner.style.display = "none";
+  };
+
+  // Function to load GA dynamically
+  function loadGoogleAnalytics() {
+    var gtagScript = document.createElement("script");
+    gtagScript.setAttribute("async", "");
+    gtagScript.src = "https://www.googletagmanager.com/gtag/js?id={{ site.analytics.google.tracking_id }}";
+    document.head.appendChild(gtagScript);
+
+    gtagScript.onload = function() {
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', '{{ site.analytics.google.tracking_id }}', { 'anonymize_ip': {{ site.analytics.google.anonymize_ip | default: true }} });
+    };
+  }
+
+  // Load GA only if already accepted
+  if (localStorage.getItem("cookie_consent") === "accepted") {
+    loadGoogleAnalytics();
+  }
+});
+</script>

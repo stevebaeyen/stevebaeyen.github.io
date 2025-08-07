@@ -46,6 +46,9 @@ We retain your personal data only as long as necessary for the purposes describe
 ## Third-Party Services
 
 We use Buttondown to manage our newsletter subscriptions. Please refer to [Buttondown’s Privacy Policy](https://buttondown.com/legal/privacy) for more information.
+This website uses Google Analytics to understand visitor interactions.  
+IP anonymization is enabled. Data is used only for statistical purposes.  
+You can revoke your consent by clearing your browser cookies.
 
 ## Changes to This Policy
 
@@ -53,4 +56,4 @@ We may update this privacy statement from time to time. Any changes will be post
 
 ---
 
-Last updated: 27/7/2025
+Last updated: 7/8/2025
