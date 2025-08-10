@@ -31,6 +31,7 @@ Your data is stored securely and is not shared with third parties except as nece
 ## Your Rights
 
 Under the GDPR, you have the right to:
+
 - Access your personal data
 - Correct or update your data
 - Request deletion of your data

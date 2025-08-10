@@ -4,7 +4,7 @@
 
 title: BioBits by Steve # the website title (if blank, full name will be used instead)
 first_name: Steve
-middle_name: 
+middle_name:
 last_name: Baeyen
 contact_note: >
   The fastest way to contact me is via direct <a href="mailto:steve.baeyen@ilvo.vlaanderen.be" target="_blank">email</a>.
@@ -120,12 +120,12 @@ disqus_shortname: al-folio # put your disqus shortname
 # If you have blog posts published on medium.com or other external sources,
 # you can display them in your blog by adding a link to the RSS feed.
 #external_sources:
-  #- name: medium.com
-    #rss_url: https://medium.com/@al-folio/feed
-  #- name: Google Blog
-    #posts:
-      #- url: https://blog.google/technology/ai/google-gemini-update-flash-ai-assistant-io-2024/
-        #published_date: 2024-05-14
+#- name: medium.com
+#rss_url: https://medium.com/@al-folio/feed
+#- name: Google Blog
+#posts:
+#- url: https://blog.google/technology/ai/google-gemini-update-flash-ai-assistant-io-2024/
+#published_date: 2024-05-14
 
 # -----------------------------------------------------------------------------
 # Newsletter
@@ -266,7 +266,18 @@ jekyll-archives:
     enabled: [year, tags, categories] # enables year, tag and category archives (remove if you need to disable one of them).
 
 display_tags: ["perl", "linux", "workflows", "pipelines", "productivity", "snakemake", "python", "R"] # these tags will be displayed on the front page of your blog
-display_categories: ["external-services", "nanopore", "illumina", "QC", "assembly", "comparative genomics", "phylogenomics", "visualisation", "coding", "AI"] # these categories will be displayed on the front page of your blog
+display_categories: [
+    "external-services",
+    "nanopore",
+    "illumina",
+    "QC",
+    "assembly",
+    "comparative genomics",
+    "phylogenomics",
+    "visualisation",
+    "coding",
+    "AI",
+  ] # these categories will be displayed on the front page of your blog
 
 # -----------------------------------------------------------------------------
 # Jekyll Scholar

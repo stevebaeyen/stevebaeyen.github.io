@@ -35,7 +35,6 @@ It's ideal for combining GUI apps (e.g., VSCode, Excel) with command-line tools 
   <img src="/assets/img/WSL_Ubuntu.jpg" alt="WSL from MS Store" style="width: 400px;" />
 </p>
 
-
 ### Oh My Bash Customization
 
 I use [Oh My Bash](https://ohmybash.nntoan.com/) for a cleaner prompt and quick aliases. It provides nice themes and useful aliases that speed up my workflow. I also customize my `.bashrc` to include aliases for common tasks, like clearing the screen, updating or checking Git status.
@@ -65,7 +64,7 @@ alias ..l='cd .. && ll'
 alias ...l='cd ../.. && ll'
 alias ....l='cd ../../.. && ll'
 alias l='ls -l --color=auto'
-# USAGE: mdpdf document.md document.md.pdf to convert from markdown to pdf 
+# USAGE: mdpdf document.md document.md.pdf to convert from markdown to pdf
 alias mdpdf="pandoc -s -V geometry:margin=1in -V documentclass:article -V fontsize=12pt"
 
 # Prompt customization
@@ -109,14 +108,12 @@ function pretty_tsv() {
 }
 ```
 
-If you want more inspiration and possibilities, check out [this link](https://tldp.org/LDP/abs/html/sample-bashrc.html)
----
+## If you want more inspiration and possibilities, check out [this link](https://tldp.org/LDP/abs/html/sample-bashrc.html)
 
 ## 🧱 2. Terminal Multiplexing with `tmux`
 
 `tmux` is essential for working over SSH, especially with flaky VPNs (or wifi, or network connectivity issues ). It allows persistent, detachable sessions.
 With `tmux`, I can start a session, run long jobs, and detach from it (I can even shutdown my laptop). If my VPN drops or I lose connection, I can simply reattach to the session without losing progress. You don't need to worry about losing your work if you get disconnected. Another advantage is that you can run multiple terminal windows in one SSH session, which is great for monitoring logs or running multiple commands simultaneously.
-
 
 <p align="center">
   <img src="/assets/img/tmux-panes.png" alt="tmux view" style="width: 400px;" />
@@ -136,6 +133,7 @@ bind - split-window -v
 ```
 
 Usage example:
+
 ```bash
 ssh my-hpc
 tmux new -s unicycler
@@ -143,6 +141,7 @@ tmux new -s unicycler
 ```
 
 If the VPN drops, I just reconnect and run:
+
 ```bash
 tmux attach -t unicycler
 ```
@@ -162,6 +161,7 @@ Host hpc
 ```
 
 Then I simply use:
+
 ```bash
 ssh hpc
 ```
@@ -180,13 +180,16 @@ VSCode is my go-to editor because of:
 - Snippets and extensions for bioinformatics (e.g., Snakemake, Biopython)
 - Code completion, syntax highlighting and debugging
 - Multi-language support
-I use the **Remote - WSL** extension to edit files directly in my WSL2 environment. This allows me to work with Linux tools while using a powerful GUI editor. For remote clusters, I use the **Remote - SSH** extension to connect and edit files directly on the server.
+  I use the **Remote - WSL** extension to edit files directly in my WSL2 environment. This allows me to work with Linux tools while using a powerful GUI editor. For remote clusters, I use the **Remote - SSH** extension to connect and edit files directly on the server.
 
 I often run:
+
 ```bash
 code .
 ```
+
 in WSL for native editing. For SSH:
+
 ```bash
 code --remote ssh-remote+hpc /data/myproject
 ```
@@ -225,10 +228,13 @@ Copilot suggests code snippets based on context, which is especially useful for 
 Even the free tier of Copilot is quite powerful (and in a lot of cases enough for non-developers), providing context-aware suggestions that can save time on routine coding tasks. It learns from your coding style and adapts to your specific needs, making it a valuable tool for bioinformatics workflows.
 
 ### Real example:
+
 I start typing:
+
 ```python
 def parse_gff(file):
 ```
+
 Copilot suggests a full parser using Biopython. I tweak it for my genome annotation workflow.
 
 While Copilot isn't perfect (especially on biological assumptions), it cuts down repetitive coding time significantly.
@@ -286,4 +292,3 @@ If you have any questions or suggestions, feel free to reach out. I'm always loo
 - [WSL2 Install Guide](https://learn.microsoft.com/en-us/windows/wsl/install)
 
 ---
-
