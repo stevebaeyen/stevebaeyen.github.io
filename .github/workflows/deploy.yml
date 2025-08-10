@@ -61,13 +61,23 @@ on:
       - "!README.md"
   workflow_dispatch:
 
+# Allow only one concurrent deployment, skipping runs queued between the current run and the latest queued.
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
 permissions:
   contents: write
+  pages: write
+  id-token: write
 
 jobs:
   deploy:
     # available images: https://github.com/actions/runner-images#available-images
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v4
@@ -98,11 +108,15 @@ jobs:
         run: |
           npm install -g purgecss
           purgecss -c purgecss.config.js
-      - name: Deploy 🚀
+      - name: Setup Pages
         if: github.event_name != 'pull_request'
-        uses: JamesIves/github-pages-deploy-action@v4.6.3
+        uses: actions/configure-pages@v5
+      - name: Upload artifact
+        if: github.event_name != 'pull_request'
+        uses: actions/upload-pages-artifact@v3
         with:
-          branch: gh-pages
-          folder: _site
-          clean: true
-          single-commit: false
+          path: _site
+      - name: Deploy to GitHub Pages 🚀
+        if: github.event_name != 'pull_request'
+        id: deployment
+        uses: actions/deploy-pages@v4
