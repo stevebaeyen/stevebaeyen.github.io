@@ -7,7 +7,7 @@ subtitle: Science, Technology and AI enthousiast, father, sensei & coffee lover.
 profile:
   align: right
   image: prof_pic.jpg
-  image_circular: true # crops the image to make it circular
+  image_circular: false # crops the image to make it circular
   more_info: >
     <p>ILVO - Plant Sciences Unit - Plant Health</p> 
     <p>Burgemeester Van Gansberghelaan 96</p>
