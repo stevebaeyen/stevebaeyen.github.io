@@ -43,3 +43,27 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 });
 </script>
+
+<!-- Additional SEO optimizations -->
+<meta name="author" content="{{ site.first_name }} {{ site.last_name }}">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="{{ page.url | prepend: site.baseurl | prepend: site.url }}">
+
+<!-- Schema.org markup for better search results -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "{{ site.first_name }} {{ site.last_name }}",
+  "jobTitle": "Bioinformatician",
+  "worksFor": {
+    "@type": "Organization",
+    "name": "ILVO - Flanders Research Institute for Agriculture, Fisheries and Food"
+  },
+  "url": "{{ site.url }}",
+  "sameAs": [
+    "https://github.com/stevebaeyen"
+  ],
+  "description": "{{ site.description | strip_html | strip }}"
+}
+</script>
