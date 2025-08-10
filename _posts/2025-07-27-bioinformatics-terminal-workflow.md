@@ -6,6 +6,7 @@ date: 2025-07-27
 categories: [bioinformatics, terminal]
 tags: [WSL, tmux, vscode, github-copilot, productivity, linux]
 description: "How I use WSL, tmux, SSH, VSCode, and GitHub Copilot to streamline bioinformatics research and development."
+giscus_comments: true
 ---
 
 ## 🧬 Introduction
