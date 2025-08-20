@@ -8,7 +8,7 @@ tags: [qPCR, in-silico, html, bioinformatics, genomics]
 giscus_comments: true
 ---
 
-# 🧬 Introducing the qPCR Primer Analyzer ILVO: Precision Meets Simplicity
+# 🧬 Precision Meets Simplicity
 
 In the ever-evolving field of bioinformatics, precision and usability are paramount. That’s why I developed the **qPCR Primer Analyzer ILVO**, a streamlined yet powerful web-based tool designed to support researchers in evaluating oligonucleotide sequences for qPCR assays.
 
