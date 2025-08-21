@@ -93,4 +93,30 @@ layout: default
   {% if site.giscus and page.giscus_comments %}
     {% include giscus.liquid %}
   {% endif %}
+
+  <!-- Newsletter Signup -->
+  <div class="newsletter-signup" style="margin-top: 2rem; padding: 1.5rem; border: 1px solid #e1e5e9; border-radius: 8px; background-color: #f8f9fa;">
+    <h4>📧 Stay Updated</h4>
+    <p>Get notified about new posts and updates from my bioinformatics research.</p>
+    
+    <form
+      action="https://buttondown.com/api/emails/embed-subscribe/stevebaeyen"
+      method="post"
+      target="popupwindow"
+      onsubmit="window.open('https://buttondown.com/stevebaeyen', 'popupwindow')"
+      class="embeddable-buttondown-form"
+    >
+      <label for="bd-email-post">Enter your email to get blog updates</label>
+      <input type="email" name="email" id="bd-email-post" style="margin: 0.5rem 0; padding: 0.5rem; width: 100%; max-width: 300px;" />
+      
+      <input type="submit" value="Subscribe" style="padding: 0.5rem 1rem; background-color: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer;" />
+      <p style="font-size: 0.8em; margin-top: 0.5rem;">
+        <a href="https://buttondown.com/refer/stevebaeyen" target="_blank">Powered by Buttondown.</a>
+      </p>
+      <p style="font-size: 0.8em; color: #666; margin-top: 0.5rem;">
+        By subscribing, you agree to our <a href="/privacy/">Privacy Statement</a>.
+      </p>
+    </form>
+  </div>
+
 </div>
