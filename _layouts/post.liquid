@@ -95,10 +95,15 @@ layout: default
   {% endif %}
 
   <!-- Newsletter Signup -->
-  <div class="newsletter-signup" style="margin-top: 2rem; padding: 1.5rem; border: 1px solid var(--global-divider-color); border-radius: 0.375rem; background-color: var(--global-card-bg-color);">
+  <div
+    class="newsletter-signup"
+    style="margin-top: 2rem; padding: 1.5rem; border: 1px solid var(--global-divider-color); border-radius: 0.375rem; background-color: var(--global-card-bg-color);"
+  >
     <h4 style="color: var(--global-text-color); margin-bottom: 0.5rem;">📧 Stay Updated</h4>
-    <p style="color: var(--global-text-color-light); margin-bottom: 1rem;">Get notified about new posts and updates from my bioinformatics research.</p>
-    
+    <p style="color: var(--global-text-color-light); margin-bottom: 1rem;">
+      Get notified about new posts and updates from my bioinformatics research.
+    </p>
+
     <form
       action="https://buttondown.com/api/emails/embed-subscribe/stevebaeyen"
       method="post"
@@ -106,22 +111,35 @@ layout: default
       onsubmit="window.open('https://buttondown.com/stevebaeyen', 'popupwindow')"
       class="embeddable-buttondown-form"
     >
-      <label for="bd-email-post" style="color: var(--global-text-color); font-size: 0.9rem; margin-bottom: 0.5rem; display: block;">Enter your email to get blog updates</label>
-      <input type="email" name="email" id="bd-email-post" 
-             style="margin: 0.5rem 0; padding: 0.5rem; width: 100%; max-width: 300px; 
-                    background-color: var(--global-bg-color); 
-                    border: 1px solid var(--global-divider-color); 
-                    border-radius: 0.25rem; 
-                    color: var(--global-text-color);" />
-      
-      <input type="submit" value="Subscribe" 
-             style="padding: 0.5rem 1rem; 
-                    background-color: var(--global-theme-color); 
-                    color: var(--global-card-bg-color); 
-                    border: none; 
-                    border-radius: 0.25rem; 
-                    cursor: pointer;
-                    font-weight: 500;" />
+      <label for="bd-email-post" style="color: var(--global-text-color); font-size: 0.9rem; margin-bottom: 0.5rem; display: block;"
+        >Enter your email to get blog updates</label
+      >
+      <input
+        type="email"
+        name="email"
+        id="bd-email-post"
+        style="
+          margin: 0.5rem 0; padding: 0.5rem; width: 100%; max-width: 300px;
+          background-color: var(--global-bg-color);
+          border: 1px solid var(--global-divider-color);
+          border-radius: 0.25rem;
+          color: var(--global-text-color);
+        "
+      >
+
+      <input
+        type="submit"
+        value="Subscribe"
+        style="
+          padding: 0.5rem 1rem;
+          background-color: var(--global-theme-color);
+          color: var(--global-card-bg-color);
+          border: none;
+          border-radius: 0.25rem;
+          cursor: pointer;
+          font-weight: 500;
+        "
+      >
       <p style="font-size: 0.8em; margin-top: 0.5rem; color: var(--global-text-color-light);">
         <a href="https://buttondown.com/refer/stevebaeyen" target="_blank" style="color: var(--global-theme-color);">Powered by Buttondown.</a>
       </p>
@@ -130,5 +148,4 @@ layout: default
       </p>
     </form>
   </div>
-
 </div>

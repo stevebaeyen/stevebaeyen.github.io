@@ -25,6 +25,7 @@ The qPCR Primer Analyzer ILVO helps users assess the quality and compatibility o
 ## ⚙️ How It Works
 
 Users can input:
+
 - Forward and reverse primers (5' → 3')
 - Optional probe sequences
 - Ion concentrations (Na⁺ and Mg²⁺)
@@ -34,12 +35,11 @@ With a single click on **🔬 Analyze Sequences**, the tool delivers a comprehen
 
 ## 🧑‍🔬 Built for Researchers, by a Researcher
 
-Created at **ILVO – Flanders Research Institute for Agriculture, Fisheries and Food**, this tool is open-source and licensed under the https://opensource.org/licenses/MIT. 
+Created at **ILVO – Flanders Research Institute for Agriculture, Fisheries and Food**, this tool is open-source and licensed under the https://opensource.org/licenses/MIT.
 It’s designed to be intuitive for molecular biologists while offering the depth needed by bioinformaticians.
 
 ## 📫 Get in Touch
 
 Have feedback or want to collaborate? Reach out at [steve.baeyen@ilvo.vlaanderen.be]
-
 
 ## 💻 Clone or download the html file from my repository on [ILVO Gitlab](https://gitlab.ilvo.be/stevebaeyen/qpcr-primer-analyzer-ilvo)
