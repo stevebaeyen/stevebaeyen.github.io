@@ -9,7 +9,7 @@ description: "A comprehensive Snakemake pipeline that leverages Autocycler conse
 giscus_comments: true
 ---
 
-# Achieving publication-quality bacterial genomes through consensus assembly and reproducible workflows*
+## Achieving publication-quality bacterial genomes through consensus assembly and reproducible workflows
 
 ---
 
