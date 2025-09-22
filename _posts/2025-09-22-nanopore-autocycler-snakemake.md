@@ -9,9 +9,7 @@ description: "A comprehensive Snakemake pipeline that leverages Autocycler conse
 giscus_comments: true
 ---
 
-# Superior Bacterial Genome Assembly with Autocycler Consensus and Snakemake
-
-*Achieving publication-quality bacterial genomes through consensus assembly and reproducible workflows*
+# Achieving publication-quality bacterial genomes through consensus assembly and reproducible workflows*
 
 ---
 
@@ -51,7 +49,7 @@ While Autocycler provides superior assembly quality, managing complex multi-samp
 
 #### **Complete Reproducibility**
 ```yaml
-# Every tool version is locked via conda environments
+# Every tool version is locked via conda environments, for example:
 envs/
 ├── autocycler.yaml      # Autocycler + assemblers
 ├── quast.yaml          # Assembly quality metrics  
@@ -110,7 +108,10 @@ Our pipeline typically achieves:
 | **Plasmid Detection** | Often Missed | **Comprehensive** | 100%+ |
 | **Misassemblies** | 2-5 per genome | **0-1 per genome** | 60-80% reduction |
 
+
 ## 🛠️ Complete Pipeline Architecture
+
+![DAG](/assets/img/DAG_autocycler.png)
 
 ### 1. Quality Control & Preprocessing
 ```bash
