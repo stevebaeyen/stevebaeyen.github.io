@@ -15,21 +15,22 @@ giscus_comments: true
 
 ## Background: Why Sequevar Typing Matters
 
-*Ralstonia solanacearum* species complex (RSSC) is one of the most destructive soilborne plant pathogens worldwide — responsible for bacterial wilt on hundreds of host species including potato, tomato, banana, and ginger. Accurate strain characterisation is critical for:
+_Ralstonia solanacearum_ species complex (RSSC) is one of the most destructive soilborne plant pathogens worldwide — responsible for bacterial wilt on hundreds of host species including potato, tomato, banana, and ginger. Accurate strain characterisation is critical for:
 
 - **Epidemiological tracking** across geographic regions and timepoints
 - **Quarantine and regulatory decisions** at borders and in diagnostics labs
 - **Host range and virulence prediction** based on known sequevar biology
 
 The gold standard for RSSC subspecies classification uses two complementary systems:
+
 - **Phylotypes** (I–IV + IIA/IIB) — based on geographic/genomic lineage
-- **Sequevars** — fine-grained groups within phylotypes, defined by sequence diversity in the endoglucanase (*egl*) gene
+- **Sequevars** — fine-grained groups within phylotypes, defined by sequence diversity in the endoglucanase (_egl_) gene
 
 Traditionally, sequevar assignment involved manual PCR, Sanger sequencing, multiple alignment, tree construction, and visual inspection — a process that does not scale to modern genomic datasets.
 
 ## The Solution: RSSC_sequevar_typing Pipeline
 
-The **[RSSC_sequevar_typing](https://gitlab.ilvo.be/stevebaeyen/rssc_sequevar_typing)** Snakemake pipeline fully automates this workflow. Starting from bacterial genome assemblies (`.fna`), it extracts the *egl* gene, performs phylogenetic analysis against 58 curated reference sequevars, and delivers both an annotated tree and a tabular sequevar assignment — all in a single reproducible run.
+The **[RSSC_sequevar_typing](https://gitlab.ilvo.be/stevebaeyen/rssc_sequevar_typing)** Snakemake pipeline fully automates this workflow. Starting from bacterial genome assemblies (`.fna`), it extracts the _egl_ gene, performs phylogenetic analysis against 58 curated reference sequevars, and delivers both an annotated tree and a tabular sequevar assignment — all in a single reproducible run.
 
 ```bash
 conda activate snakemake
@@ -83,15 +84,15 @@ Steps 2–3 run **in parallel** across all samples. Steps 6 and 7 also run in **
 
 ### Step 1 — In-silico PCR (`run_epcr`)
 
-The *egl* gene is extracted from each genome assembly using primer-based in-silico PCR via the companion [`run_epcr.py`](https://gitlab.ilvo.be/stevebaeyen/run_epcr) script.
+The _egl_ gene is extracted from each genome assembly using primer-based in-silico PCR via the companion [`run_epcr.py`](https://gitlab.ilvo.be/stevebaeyen/run_epcr) script.
 
-| Parameter | Value |
-|---|---|
-| Forward primer | `ATGCATGCCGCTGGTCGCCGC` |
-| Reverse primer | `GCGTTGCCCGGCACGAACACC` |
-| Max amplicon length | 2000 bp |
-| Max mismatches | 2 |
-| Max indels | 0 |
+| Parameter           | Value                   |
+| ------------------- | ----------------------- |
+| Forward primer      | `ATGCATGCCGCTGGTCGCCGC` |
+| Reverse primer      | `GCGTTGCCCGGCACGAACACC` |
+| Max amplicon length | 2000 bp                 |
+| Max mismatches      | 2                       |
+| Max indels          | 0                       |
 
 Output: `results/00_epcr/all_amplicons.fasta`
 
@@ -103,11 +104,11 @@ The batch ePCR FASTA is split into individual per-sample files by matching the s
 
 The raw amplicon (~900–1100 bp) is trimmed to the **~698 nt phylogenetically informative region** using motif-based trimming. This region is the standard used in all sequevar classification literature.
 
-| Motifs | Values |
-|---|---|
+| Motifs         | Values                                                               |
+| -------------- | -------------------------------------------------------------------- |
 | START patterns | `ACCGCG`, `ACCGTG`, `ACGGCG`, `ACGGTG`, `ACTGCG`, `ATGGTG`, `CGGGCG` |
-| END pattern | `CAGTGG` |
-| Expected size | 678–710 nt |
+| END pattern    | `CAGTGG`                                                             |
+| Expected size  | 678–710 nt                                                           |
 
 When multiple START motifs match, disambiguation uses upstream markers (`AGCCT`, `ACCCT`, `AGTTT`) found within 15 nt before the candidate.
 
@@ -117,26 +118,26 @@ Trimmed query sequences are aligned together with the **58 curated reference seq
 
 ### Step 5 — Maximum-likelihood tree (`build_tree`)
 
-A phylogenetic tree is inferred with **IQ-TREE2** using the `TIM+I+G4` substitution model — selected by prior jModelTest2 analysis of the *egl* reference sequences — with 1000 ultrafast bootstrap (UFBoot2) replicates.
+A phylogenetic tree is inferred with **IQ-TREE2** using the `TIM+I+G4` substitution model — selected by prior jModelTest2 analysis of the _egl_ reference sequences — with 1000 ultrafast bootstrap (UFBoot2) replicates.
 
-| Parameter | Value |
-|---|---|
-| Tool | IQ-TREE2 ≥ 2.2 |
-| Model | TIM+I+G4 |
-| Bootstrap | 1000 UFBoot2 |
+| Parameter | Value          |
+| --------- | -------------- |
+| Tool      | IQ-TREE2 ≥ 2.2 |
+| Model     | TIM+I+G4       |
+| Bootstrap | 1000 UFBoot2   |
 
 ### Step 6 — Annotated tree visualization (`visualize_tree`)
 
 An annotated, publication-ready tree is rendered as a PDF using **ggtree** in R. Tip labels are colour-coded by phylotype:
 
 | Phylotype | Colour |
-|---|---|
-| I | Red |
-| IIA | Blue |
-| IIB | Green |
-| III | Purple |
-| IV | Orange |
-| Query | Black |
+| --------- | ------ |
+| I         | Red    |
+| IIA       | Blue   |
+| IIB       | Green  |
+| III       | Purple |
+| IV        | Orange |
+| Query     | Black  |
 
 Bootstrap support values ≥ 70% are shown on internal nodes.
 
@@ -144,13 +145,13 @@ Bootstrap support values ≥ 70% are shown on internal nodes.
 
 Each query genome is assigned a phylotype and sequevar by finding the **closest reference tip** in the ML tree using patristic (branch-length) distances. The output is a tab-delimited table:
 
-| Column | Description |
-|---|---|
-| Genome | Query genome name (.fna file stem) |
-| Phylotype | Assigned RSSC phylotype (I, IIA, IIB, III, IV) |
-| Sequevar | Assigned egl sequevar number |
-| Closest_Reference | FASTA ID of the nearest reference tip |
-| Tree_Distance | Patristic distance to the closest reference |
+| Column            | Description                                    |
+| ----------------- | ---------------------------------------------- |
+| Genome            | Query genome name (.fna file stem)             |
+| Phylotype         | Assigned RSSC phylotype (I, IIA, IIB, III, IV) |
+| Sequevar          | Assigned egl sequevar number                   |
+| Closest_Reference | FASTA ID of the nearest reference tip          |
+| Tree_Distance     | Patristic distance to the closest reference    |
 
 > **Note:** A `Tree_Distance` > 0.05 may indicate a divergent or novel genotype. Always inspect the tree visualization alongside the assignment table.
 
@@ -158,15 +159,15 @@ Each query genome is assigned a phylotype and sequevar by finding the **closest 
 
 ## Output Files
 
-| Output | Path |
-|---|---|
-| ePCR amplicons (batch) | `results/00_epcr/all_amplicons.fasta` |
-| Per-sample egl genes | `results/01_egl_genes/{sample}.egl.fasta` |
-| Trimmed egl sequences (~698 nt) | `results/02_egl_genes_trimmed/{sample}.egl.trimmed.fasta` |
-| Multiple sequence alignment | `results/03_alignment/egl_aligned.fasta` |
-| ML tree (Newick) | `results/04_trees/IQTree2.egl.tree` |
-| Annotated tree visualization | `tree_visualizations/IQTree2.egl.tree.visualization.pdf` |
-| Sequevar assignments | `results/05_sequevar_assignments/sequevar_assignments.txt` |
+| Output                          | Path                                                       |
+| ------------------------------- | ---------------------------------------------------------- |
+| ePCR amplicons (batch)          | `results/00_epcr/all_amplicons.fasta`                      |
+| Per-sample egl genes            | `results/01_egl_genes/{sample}.egl.fasta`                  |
+| Trimmed egl sequences (~698 nt) | `results/02_egl_genes_trimmed/{sample}.egl.trimmed.fasta`  |
+| Multiple sequence alignment     | `results/03_alignment/egl_aligned.fasta`                   |
+| ML tree (Newick)                | `results/04_trees/IQTree2.egl.tree`                        |
+| Annotated tree visualization    | `tree_visualizations/IQTree2.egl.tree.visualization.pdf`   |
+| Sequevar assignments            | `results/05_sequevar_assignments/sequevar_assignments.txt` |
 
 ---
 
@@ -244,17 +245,17 @@ All tool dependencies (MAFFT, IQ-TREE2, ggtree, Biopython, etc.) are installed a
 
 If you use this pipeline in your research, please cite:
 
-> Baeyen, S. (2026). *Snakemake pipeline for Ralstonia solanacearum species complex (RSSC) sequevar typing based on the endoglucanase (egl) gene* (Version 1.0.0). Zenodo. [https://doi.org/10.5281/zenodo.19002750](https://doi.org/10.5281/zenodo.19002750)
+> Baeyen, S. (2026). _Snakemake pipeline for Ralstonia solanacearum species complex (RSSC) sequevar typing based on the endoglucanase (egl) gene_ (Version 1.0.0). Zenodo. [https://doi.org/10.5281/zenodo.19002750](https://doi.org/10.5281/zenodo.19002750)
 
 ---
 
 ## References
 
 - Cellier, G., Pecrix, Y., Gauche, M. M., & Cheron, J. J. (2023). Ralstonia solanacearum species complex egl reference database. CIRAD Dataverse. [https://doi.org/10.18167/DVN1/CUWA5P](https://doi.org/10.18167/DVN1/CUWA5P)
-- Fegan, M. & Prior, P. (2005). How complex is the *Ralstonia solanacearum* species complex? In: *Bacterial Wilt Disease and the Ralstonia solanacearum Species Complex*, APS Press.
-- Wicker, E. et al. (2007). Ralstonia solanacearum strains from Martinique exhibiting a new pathogenic potential. *Applied and Environmental Microbiology* 73(21):6790–6801.
-- Nguyen, L.-T. et al. (2015). IQ-TREE: A fast and effective stochastic algorithm for estimating maximum-likelihood phylogenies. *Molecular Biology and Evolution* 32(1):268–274.
-- Yu, G. et al. (2017). ggtree: an R package for visualization and annotation of phylogenetic trees with their covariates and other associated data. *Methods in Ecology and Evolution* 8(1):28–36.
+- Fegan, M. & Prior, P. (2005). How complex is the _Ralstonia solanacearum_ species complex? In: _Bacterial Wilt Disease and the Ralstonia solanacearum Species Complex_, APS Press.
+- Wicker, E. et al. (2007). Ralstonia solanacearum strains from Martinique exhibiting a new pathogenic potential. _Applied and Environmental Microbiology_ 73(21):6790–6801.
+- Nguyen, L.-T. et al. (2015). IQ-TREE: A fast and effective stochastic algorithm for estimating maximum-likelihood phylogenies. _Molecular Biology and Evolution_ 32(1):268–274.
+- Yu, G. et al. (2017). ggtree: an R package for visualization and annotation of phylogenetic trees with their covariates and other associated data. _Methods in Ecology and Evolution_ 8(1):28–36.
 
 ---
 
