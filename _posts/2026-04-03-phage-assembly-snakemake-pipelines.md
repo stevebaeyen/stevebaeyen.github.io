@@ -21,7 +21,6 @@ Both workflows are released under the MIT license and built for transparent, rep
 
 If you use these pipelines in your research, I’d love to hear about it! Feedback and contributions are always welcome.
 
-
 ---
 
 ## Why These Pipelines Matter

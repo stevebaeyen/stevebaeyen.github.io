@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-New Snakemake Pipelines for Bacteriophage Assembly and QC 
+New Snakemake Pipelines for Bacteriophage Assembly and QC
