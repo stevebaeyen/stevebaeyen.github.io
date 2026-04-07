@@ -172,8 +172,8 @@ flowchart TD
     A[Start: Project goal] --> B{Do you already have sequencing data?}
 
     B -->|No| C{Main objective?}
-    C -->|Diagnostics / SNPs / Surveillance| D[Illumina sequencing<br>Illumina assembly + QC pipeline]
-    C -->|Complete genome / plasmids| E[Nanopore sequencing<br>Nanopore-only or Autocycler pipeline]
+    C -->|Diagnostics / SNPs / Surveillance| D["Illumina sequencing<br/>Illumina assembly + QC pipeline"]
+    C -->|Complete genome / plasmids| E["Nanopore sequencing<br/>Nanopore-only or Autocycler pipeline"]
 
     B -->|Yes| F{Data type?}
 
