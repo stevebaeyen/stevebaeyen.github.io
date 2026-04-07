@@ -4,6 +4,7 @@ title: "Adventures in Bacterial Genome Assembly with Snakemake"
 date: 2025-09-17
 categories: [bioinformatics, snakemake, gitlab]
 tags: [assembly, bioinformatics, genomics]
+description: "A tour of my Snakemake pipelines for bacterial genome assembly and QC, inspired by the work of Dr. Ryan Wick and Dr. Torsten Seeman."
 giscus_comments: true
 tools:
   - name: "illumina-bacterial-assembly-snakemake"

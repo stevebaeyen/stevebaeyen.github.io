@@ -4,6 +4,7 @@ date: 2026-04-07
 layout: post
 author: "Steve Baeyen"
 categories: [bioinformatics, genomics, sequencing, plant-pathology]
+description: "A practical, lab-oriented comparison of Illumina and Nanopore sequencing for plant pathogens, grounded in real Snakemake workflows."
 tags:
   - plant-pathology
   - phytobacteriology

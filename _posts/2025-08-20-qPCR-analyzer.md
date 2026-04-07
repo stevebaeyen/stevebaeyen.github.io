@@ -5,6 +5,7 @@ date: 2025-08-20
 author: "Steve Baeyen"
 categories: [bioinformatics, genomics, tools]
 tags: [qPCR, in-silico, html, bioinformatics, genomics]
+description: "Introducing the qPCR Primer Analyzer ILVO, a web-based tool for evaluating primer/probe sets for qPCR assays with salt-corrected Tm calculations and secondary structure detection."
 giscus_comments: true
 tools:
   - name: "qpcr-primer-analyzer-ilvo"

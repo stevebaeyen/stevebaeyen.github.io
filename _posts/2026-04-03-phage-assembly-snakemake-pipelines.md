@@ -5,6 +5,7 @@ date: 2026-04-03
 author: "Steve Baeyen"
 categories: [bioinformatics, genomics, workflows]
 tags: [snakemake, bacteriophage, illumina, nanopore, assembly, quality-control]
+description: "Two new Snakemake pipelines for bacteriophage genome assembly and quality control: one for Illumina reads and one for Nanopore reads."
 giscus_comments: true
 tools:
   - name: "phage_assembly_snakemake"
