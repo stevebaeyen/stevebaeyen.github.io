@@ -5,6 +5,16 @@ date: 2025-09-17
 categories: [bioinformatics, snakemake, gitlab]
 tags: [assembly, bioinformatics, genomics]
 giscus_comments: true
+tools:
+  - name: "illumina-bacterial-assembly-snakemake"
+    url: "https://gitlab.ilvo.be/stevebaeyen/illumina-bacterial-assembly-snakemake"
+    description: "Snakemake pipeline for bacterial genome assembly from Illumina paired-end reads with QC (QUAST, CheckM2, BUSCO, Kraken2, GTDB-Tk) and automated HTML/PDF reports."
+  - name: "bacterial-assembly-qc-snakemake"
+    url: "https://gitlab.ilvo.be/genomics/wgs/bacterial-assembly-qc-snakemake"
+    description: "QC-only Snakemake pipeline for existing bacterial assemblies; runs QUAST, CheckM2, BUSCO, generates summary plots and Excel reports without re-assembling."
+  - name: "nanopore_only_snakemake"
+    url: "https://gitlab.ilvo.be/stevebaeyen/nanopore_only_snakemake"
+    description: "Snakemake pipeline for bacterial genome assembly and QC from Oxford Nanopore long reads."
 ---
 
 ## 🧬 Adventures in Bacterial Genome Assembly: My Illumina Snakemake Pipelines on GitLab

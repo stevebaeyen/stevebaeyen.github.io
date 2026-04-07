@@ -7,6 +7,10 @@ tags: [ralstonia, rssc, sequevar, phylogenetics, snakemake, iqtree2, mafft, bact
 author: Steve Baeyen
 description: "A Snakemake pipeline for automated Ralstonia solanacearum species complex (RSSC) sequevar typing based on the endoglucanase (egl) gene — from genome assemblies to phylogenetic tree and sequevar assignment in one command."
 giscus_comments: true
+tools:
+  - name: "rssc_sequevar_typing"
+    url: "https://gitlab.ilvo.be/stevebaeyen/rssc_sequevar_typing"
+    description: "Snakemake pipeline for automated RSSC sequevar typing: extracts the egl gene via in-silico PCR, aligns against 58 curated reference sequevars with MAFFT, builds a maximum-likelihood phylogenetic tree with IQ-TREE2, and assigns phylotype and sequevar per genome."
 ---
 
 ## Automated sequevar typing for Ralstonia solanacearum from genome to assignment in one command

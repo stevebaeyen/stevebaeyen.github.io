@@ -6,6 +6,13 @@ author: "Steve Baeyen"
 categories: [bioinformatics, genomics, workflows]
 tags: [snakemake, bacteriophage, illumina, nanopore, assembly, quality-control]
 giscus_comments: true
+tools:
+  - name: "phage_assembly_snakemake"
+    url: "https://gitlab.ilvo.be/stevebaeyen/phage_assembly_snakemake"
+    description: "Snakemake pipeline for bacteriophage genome assembly from Illumina paired-end reads using Shovill; includes fastp QC, QUAST, VirSorter2, CheckV, and automated HTML/PDF reports."
+  - name: "phage-nanopore-assembly-snakemake"
+    url: "https://gitlab.ilvo.be/stevebaeyen/phage-nanopore-assembly-snakemake"
+    description: "Snakemake pipeline for bacteriophage genome assembly from Oxford Nanopore reads using Flye with Medaka polishing; includes NanoPlot QC, Filtlong, Porechop_ABI, Bandage, VirSorter2, CheckV, and automated HTML/PDF reports."
 ---
 
 ## A New Step for Reproducible Phage Genomics

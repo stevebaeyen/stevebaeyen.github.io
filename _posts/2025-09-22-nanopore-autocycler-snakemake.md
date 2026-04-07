@@ -7,6 +7,10 @@ tags: [oxford-nanopore, autocycler, bacterial-genomics, consensus-assembly, repr
 author: Steve Baeyen
 description: "A comprehensive Snakemake pipeline that leverages Autocycler consensus assembly to achieve superior quality bacterial genomes from Oxford Nanopore sequencing data"
 giscus_comments: true
+tools:
+  - name: "nanopore_autocycler_snakemake"
+    url: "https://gitlab.ilvo.be/stevebaeyen/nanopore_autocycler_snakemake"
+    description: "Snakemake pipeline for high-quality bacterial genome assembly from Oxford Nanopore reads using Autocycler consensus (Canu, Flye, Plassembler); includes read QC, Racon/Medaka polishing, BUSCO/CheckM2/QUAST assessment, and automated HTML/PDF reports."
 ---
 
 ## Achieving publication-quality bacterial genomes through consensus assembly and reproducible workflows

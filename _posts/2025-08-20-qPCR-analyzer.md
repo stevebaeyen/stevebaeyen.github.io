@@ -6,6 +6,10 @@ author: "Steve Baeyen"
 categories: [bioinformatics, genomics, tools]
 tags: [qPCR, in-silico, html, bioinformatics, genomics]
 giscus_comments: true
+tools:
+  - name: "qpcr-primer-analyzer-ilvo"
+    url: "https://gitlab.ilvo.be/stevebaeyen/qpcr-primer-analyzer-ilvo"
+    description: "Single-file web tool for evaluating primer/probe sets for qPCR assays. Calculates salt-corrected melting temperatures, detects hairpins and cross-dimers, and checks compatibility with Thermo Fisher guidelines."
 ---
 
 # 🧬 Precision Meets Simplicity
