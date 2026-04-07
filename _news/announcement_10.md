@@ -15,4 +15,4 @@ inline: true
 related_posts: false
 ---
 
-New post: **Illumina vs Nanopore sequencing for plant pathogens**. A practical, lab‑oriented comparison of these two technologies, grounded in real Snakemake workflows used for plant‑pathogen genomics.
+New post: [**Illumina vs Nanopore sequencing for plant pathogens**](/blog/2026/illumina-vs-nanopore-plant-pathogens/). A practical, lab‑oriented comparison of these two technologies, grounded in real Snakemake workflows used for plant‑pathogen genomics.

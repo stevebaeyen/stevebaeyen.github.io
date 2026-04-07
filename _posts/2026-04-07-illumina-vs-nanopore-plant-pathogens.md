@@ -71,7 +71,7 @@ Best suited for:
 - structural variation
 - rapid outbreak investigation
 
-![Nanopore long reads](/assets/img/long-read-dna-sequencing.png)
+<img src="/assets/img/long-read-dna-sequencing.png" alt="Nanopore long reads" style="max-width: 600px; width: 100%;" />
 
 ---
 
@@ -108,7 +108,7 @@ Designed for **high‑throughput Illumina paired‑end data**, this pipeline per
 📦 Repository  
 <https://gitlab.ilvo.be/genomics/wgs/illumina-bacterial-assembly-snakemake>
 
-![Illumina Snakemake workflow](https://gitlab.ilvo.be/genomics/wgs/illumina-bacterial-assembly-snakemake/-/raw/058ca0cdfe630d1bfaf1f0f9a2cf2102445952e9/dag_simple.svg)
+<img src="https://gitlab.ilvo.be/genomics/wgs/illumina-bacterial-assembly-snakemake/-/raw/058ca0cdfe630d1bfaf1f0f9a2cf2102445952e9/dag_simple.svg" alt="Illumina Snakemake workflow" style="max-width: 500px; width: 100%;" />
 
 ---
 
@@ -124,7 +124,7 @@ Optimized for **Oxford Nanopore R10.4.1 long‑read data**, focusing on:
 📦 Repository  
 <https://gitlab.ilvo.be/stevebaeyen/nanopore_only_snakemake>
 
-![Nanopore Snakemake workflow](/assets/img/nanopore-only-workflow-dag.png)
+<img src="/assets/img/nanopore-only-workflow-dag.png" alt="Nanopore Snakemake workflow" style="max-width: 500px; width: 100%;" />
 
 ---
 
@@ -142,7 +142,7 @@ Key features:
 📦 Repository  
 <https://gitlab.ilvo.be/stevebaeyen/nanopore_autocycler_snakemake>
 
-![Autocycler Snakemake workflow](/assets/img/DAG_autocycler.png)
+<img src="/assets/img/DAG_autocycler.png" alt="Autocycler Snakemake workflow" style="max-width: 500px; width: 100%;" />
 
 ---
 
@@ -161,7 +161,7 @@ Includes:
 📦 Repository  
 <https://gitlab.ilvo.be/stevebaeyen/bacterial-assembly-qc-snakemake>
 
-![Assembly QC workflow](/assets/img/dag.svg)
+<img src="/assets/img/dag.svg" alt="Assembly QC workflow" style="max-width: 500px; width: 100%;" />
 
 ---
 
@@ -172,8 +172,8 @@ flowchart TD
     A[Start: Project goal] --> B{Do you already have sequencing data?}
 
     B -->|No| C{Main objective?}
-    C -->|Diagnostics / SNPs / Surveillance| D[Illumina sequencing<br/>Illumina assembly + QC pipeline]
-    C -->|Complete genome / plasmids| E[Nanopore sequencing<br/>Nanopore-only or Autocycler pipeline]
+    C -->|Diagnostics / SNPs / Surveillance| D[Illumina sequencing<br>Illumina assembly + QC pipeline]
+    C -->|Complete genome / plasmids| E[Nanopore sequencing<br>Nanopore-only or Autocycler pipeline]
 
     B -->|Yes| F{Data type?}
 
