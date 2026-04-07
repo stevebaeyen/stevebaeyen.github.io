@@ -169,18 +169,14 @@ Includes:
 
 ```mermaid
 flowchart TD
-    A[Start: Project goal] --> B{Do you already have sequencing data?}
-
+    A[Start: choose a pipeline] --> B{Do you have sequencing data?}
     B -->|No| C{Main objective?}
-    C -->|Diagnostics / SNPs / Surveillance| D["Illumina sequencing<br/>Illumina assembly + QC pipeline"]
-    C -->|Complete genome / plasmids| E["Nanopore sequencing<br/>Nanopore-only or Autocycler pipeline"]
-
+    C -->|Diagnostics or SNPs| D[Illumina sequencing and assembly pipeline]
+    C -->|Complete genome or plasmids| E[Nanopore sequencing and assembly pipeline]
     B -->|Yes| F{Data type?}
-
     F -->|Illumina reads| D
     F -->|Nanopore reads| G{Assembly quality needed?}
-    F -->|Assemblies only (FASTA)| H[Assembly QC pipeline]
-
-    G -->|Fast & good| I[Nanopore-only pipeline]
+    F -->|Existing assemblies| H[Assembly QC pipeline]
+    G -->|Fast and good| I[Nanopore-only pipeline]
     G -->|Reference-grade| J[Nanopore Autocycler pipeline]
 ```
