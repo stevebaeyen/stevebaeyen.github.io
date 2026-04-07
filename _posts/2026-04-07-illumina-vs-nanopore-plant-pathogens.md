@@ -27,6 +27,13 @@ For bacterial plant pathogens such as _Pseudomonas_, _Xanthomonas_, _Ralstonia_,
 - assembly quality
 - plasmid detection
 - downstream phylogenetics and diagnostics
+- sequencing costs
+
+One more thing to consider is the **wet-lab** part, especially the extraction of gDNA. For Illumina, you can get away with a simple kit-based extraction, while for Nanopore, you really need to invest in a high-quality, high-molecular-weight DNA extraction protocol. This can be a game-changer for many labs in terms of time and resources. I tried several HMW gDNA extraction protocols (NO-MISS protocol from ONT, MagAttract HMW kit from Qiagen, Puregene, NEB Monarch HMQ gDNA kit, etc.) For now, I stick to the NEB kit which gives me consistently high yield and concentrations for gram-negative and gram-positive bacteria. So, the choice of sequencing technology also has implications for your lab workflow and budget.
+
+When using this HMW gDNA extraction, you can achieve read N50s of around 20 kb on the MinION, which is fantastic for bacterial genomes. This means you can often get complete, closed genomes in a single run, which is a huge advantage for understanding plasmids and genomic islands. On the other hand, if you go with Illumina, you’ll get very accurate reads but your assemblies will likely be fragmented into dozens or hundreds of contigs, making it harder to resolve complex genomic regions.
+
+For ONT library prep, I use the Rapid Barcoding Kit (SQK-RBK114.24) for its speed and simplicity, especially when processing multiple samples (i use between 12-24 samples per Minion flowcell). The Rapid kit allows you to go from DNA to library in about an hour, which is great for quick turnarounds. I also tried the Native Barcoding kit (SQK-NBD114.24) for a while, which can give you slightly longer reads and better yield, but it’s more time-consuming and requires more input DNA (400ng per sample instead of 200ng for the rapid kit). The Rapid kit is my go-to choice.
 
 This post provides a **practical, lab‑oriented comparison** of Illumina and Nanopore sequencing, grounded in **real Snakemake workflows** used for plant‑pathogen genomics.
 
@@ -60,8 +67,8 @@ Best suited for:
 
 ### Nanopore (long reads)
 
-- Read lengths: 5 kb – 100 kb+
-- Higher raw error rate (improving rapidly)
+- Read lengths: 5 kb – 100 kb+ (longest read I got was 1.2 Mb, but that’s an outlier)
+- Higher raw error rate (improving rapidly, especially with R10.4.1 chemistry and the new basecallers such as Dorado SUP models > version 5.0.0)
 - Assemblies often **closed**
 
 Best suited for:
@@ -117,7 +124,7 @@ Designed for **high‑throughput Illumina paired‑end data**, this pipeline per
 Optimized for **Oxford Nanopore R10.4.1 long‑read data**, focusing on:
 
 - long‑read filtering
-- de novo assembly
+- de novo assembly with Flye
 - polishing and QC
 - reference‑grade bacterial genomes
 
@@ -136,7 +143,7 @@ Key features:
 
 - read subsampling
 - Flye / Canu / Plassembler consensus
-- conflict resolution
+- QC and reporting
 - publication‑quality genomes
 
 📦 Repository  
@@ -148,14 +155,14 @@ Key features:
 
 ## Assembly QC‑only workflow (technology‑agnostic)
 
-Used when assemblies already exist (Illumina, Nanopore, or hybrid).
+Used when assemblies already exist (databases, Illumina, Nanopore, or hybrid).
 
 Includes:
 
 - QUAST
 - BUSCO
 - CheckM2
-- ANI‑based taxonomic checks
+- ANI‑based taxonomic checks using skani/GTDB
 - Excel + HTML/PDF summaries
 
 📦 Repository  
