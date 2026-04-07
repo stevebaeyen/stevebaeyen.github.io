@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360" role="img" aria-labelledby="title desc">
+  <title id="title">Short vs Long Sequencing Reads</title>
+  <desc id="desc">Illustration comparing many short reads to fewer long reads aligned against a reference genome.</desc>
+  <rect width="1200" height="360" fill="#f8fafc"/>
+  <text x="60" y="52" font-family="Helvetica, Arial, sans-serif" font-size="34" font-weight="700" fill="#0f172a">Short vs Long Reads</text>
+
+  <text x="60" y="95" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="600" fill="#334155">Illumina (short reads)</text>
+  <text x="60" y="245" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="600" fill="#334155">Nanopore (long reads)</text>
+
+  <rect x="280" y="75" width="860" height="50" rx="8" fill="#e2e8f0"/>
+  <rect x="280" y="225" width="860" height="50" rx="8" fill="#e2e8f0"/>
+
+  <g fill="#3b82f6">
+    <rect x="305" y="87" width="80" height="26" rx="5"/>
+    <rect x="402" y="87" width="96" height="26" rx="5"/>
+    <rect x="518" y="87" width="78" height="26" rx="5"/>
+    <rect x="612" y="87" width="92" height="26" rx="5"/>
+    <rect x="721" y="87" width="82" height="26" rx="5"/>
+    <rect x="822" y="87" width="98" height="26" rx="5"/>
+    <rect x="940" y="87" width="74" height="26" rx="5"/>
+    <rect x="1028" y="87" width="86" height="26" rx="5"/>
+  </g>
+
+  <g fill="#f97316">
+    <rect x="305" y="237" width="350" height="26" rx="5"/>
+    <rect x="678" y="237" width="420" height="26" rx="5"/>
+  </g>
+
+  <text x="60" y="327" font-family="Helvetica, Arial, sans-serif" font-size="18" fill="#475569">Reference genome (gray) covered by many short reads vs fewer long reads.</text>
+</svg>
