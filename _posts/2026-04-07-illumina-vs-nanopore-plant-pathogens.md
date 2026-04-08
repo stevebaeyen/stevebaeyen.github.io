@@ -3,6 +3,7 @@ title: "Illumina vs. Nanopore for Plant Pathogens — A Practical Overview"
 date: 2026-04-07
 layout: post
 author: "Steve Baeyen"
+giscus_comments: true
 categories: [bioinformatics, genomics, sequencing, plant-pathology]
 description: "A practical, lab-oriented comparison of Illumina and Nanopore sequencing for plant pathogens, grounded in real Snakemake workflows."
 tags:
@@ -13,7 +14,6 @@ tags:
   - nanopore
   - snakemake
   - diagnostics
-giscus_comments: true
 mermaid:
   enabled: true
   zoomable: true
