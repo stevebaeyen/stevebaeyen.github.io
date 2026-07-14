@@ -35,24 +35,24 @@ During the EURL Workshop 2025 on plant pathogen genomics, we emphasized the need
 
 ## Recommended Quality Thresholds
 
-| Metric | Recommended Threshold |
-|----------|----------|
-| Illumina quality | Q30 or higher |
-| ONT quality | Q20 or higher |
-| BUSCO completeness | >90%, ideally >97% |
-| Contamination | <5% |
-| N50 | >100 kb preferred |
-| Number of contigs | <200 |
-| ANI confirmation | ≥95% |
-| Genome size | Within 10% of expected |
-| GC content | Consistent with species |
+| Metric             | Recommended Threshold   |
+| ------------------ | ----------------------- |
+| Illumina quality   | Q30 or higher           |
+| ONT quality        | Q20 or higher           |
+| BUSCO completeness | >90%, ideally >97%      |
+| Contamination      | <5%                     |
+| N50                | >100 kb preferred       |
+| Number of contigs  | <200                    |
+| ANI confirmation   | ≥95%                    |
+| Genome size        | Within 10% of expected  |
+| GC content         | Consistent with species |
 
 BUSCO has become one of the most widely adopted tools for assessing assembly completeness because it evaluates the presence of conserved single-copy orthologs expected within a lineage rather than relying solely on assembly statistics.
 
 Similarly, CheckM and CheckM2 estimate contamination and completeness based on lineage-specific marker genes, thereby identifying mixed cultures and problematic assemblies before comparative analyses are performed. Although CheckM2 is faster, CheckM estimates are still better and comparable with BUSCO genome completeness and contamination.
 
 <p align="center">
-  <img src="/assets/img/QC.jpg" alt="Snakemake QC" style="width: 400px;" />
+  <img src="/assets/img/snakemakeQC.jpg" alt="Snakemake QC" style="width: 600px;" />
 </p>
 
 # Comparative Genomics as a Hierarchical Framework
@@ -112,7 +112,7 @@ In routine workflows, **skANI** has proven particularly useful because it combin
 **GenomeRxiv** is another valuable web-based resource with an API (using the BrookLIN CLI) that provides taxonomic assignment based on GTDB and NCBI databases. It first uses a fast mash-based approach to identify the closest reference genome, followed by ANI calculation for species confirmation.
 
 <p align="center">
-  <img src="/assets/img/genomerxiv.jpg" alt="GenomeRxiv" style="width: 400px;" />
+  <img src="/assets/img/genomerxiv.jpg" alt="GenomeRxiv" style="width: 600px;" />
 </p>
 
 ### Practical Example — Routine Diagnostics
@@ -127,13 +127,12 @@ Assembled genome
 Species confirmed
 ```
 
-
 ## Beyond Species: Why ANI Is Not Enough
 
 Although ANI is highly effective for species identification, it rapidly loses discriminatory power among closely related strains. For example:
 
 - RSSC sequevars frequently exceed 98–99% ANI.
-- Closely related *Pseudomonas syringae* populations often exhibit extreme genomic similarity.
+- Closely related _Pseudomonas syringae_ populations often exhibit extreme genomic similarity.
 - Epidemiologically linked outbreak strains may differ by only a handful of mutations.
 
 In such situations, researchers require higher-resolution approaches — this is where **pangenomics** and **population genomics** become essential.
@@ -143,21 +142,27 @@ In such situations, researchers require higher-resolution approaches — this is
 The concept of the pangenome was introduced to describe the entire gene repertoire of a species. A pangenome can be divided into three components:
 
 ### Core Genome
+
 Genes present in nearly all isolates, including those involved in:
+
 - DNA replication
 - Transcription
 - Translation
 - Central metabolism
 
 ### Accessory Genome
+
 Genes present only in subsets of isolates, frequently including:
+
 - Virulence factors
 - Secretion systems
 - Resistance determinants
 - Mobile genetic elements
 
 ### Unique Genome
+
 Genes found in individual strains, often resulting from:
+
 - Horizontal gene transfer
 - Plasmid acquisition
 - Prophage integration
@@ -190,27 +195,30 @@ Core/accessory identification
 Phylogenomic analysis
 ```
 
-The platform enables simultaneous investigation of genomic diversity, evolutionary history, and functional gene content — particularly valuable for population studies involving *Ralstonia*, *Pseudomonas*, *Xanthomonas*, *Dickeya*, and related plant pathogens.
+The platform enables simultaneous investigation of genomic diversity, evolutionary history, and functional gene content — particularly valuable for population studies involving _Ralstonia_, _Pseudomonas_, _Xanthomonas_, _Dickeya_, and related plant pathogens.
 
 <p align="center">
-  <img src="/assets/img/anvio.jpg" alt="Anvi'o" style="width: 400px;" />
+  <img src="/assets/img/anvio.jpg" alt="Anvi'o" style="width: 600px;" />
 </p>
-
 
 ## Gene-by-Gene Comparative Genomics
 
 An alternative to SNP-based analyses is gene-by-gene typing, which compares allelic variants across predefined loci rather than individual nucleotide positions.
 
 ### Core Genome MLST (cgMLST)
+
 Focuses on genes shared by nearly all isolates. Benefits include:
+
 - Robust standardization
 - Easy inter-laboratory comparison
 - Reproducible nomenclature
 
 ### Whole Genome MLST (wgMLST)
+
 Extends analyses to accessory loci, increasing discriminatory power and facilitating outbreak investigations.
 
 One widely adopted platform is **chewBBACA**, which supports:
+
 - Schema development
 - Allele calling
 - Core genome extraction
@@ -219,15 +227,15 @@ One widely adopted platform is **chewBBACA**, which supports:
 These methods provide a practical compromise between ANI and SNP-level analyses.
 
 <p align="center">
-  <img src="/assets/img/MST_ST.jpg" alt="ChewBBACA" style="width: 400px;" />
+  <img src="/assets/img/MST_ST.jpg" alt="ChewBBACA" style="width: 600px;" />
 </p>
-
 
 ## Core Genome SNP Analysis
 
 When the highest possible resolution is required, SNP-based approaches remain the preferred strategy. Rather than comparing genes, SNP approaches compare individual nucleotide substitutions across the core genome.
 
 **Applications include:**
+
 - Outbreak investigations
 - Epidemiological studies
 - Clonal lineage tracking
@@ -250,6 +258,7 @@ Phylogenetic reconstruction
 ```
 
 A recent addition to my variant calling workflow is:
+
 - using a pangenome reference for mapping, which improves SNP detection in highly diverse populations using the [SuperPang](https://github.com/fpusan/SuperPang) package.
 - using a consensus variant caller like [VariantDetective](https://github.com/OLF-Bioinformatics/VariantDetective), that uses state of the art variant callers like FreeBayes, Clair3 and GATK HaplotypeCaller to generate a high-quality consensus variant call set.
 
@@ -286,20 +295,19 @@ iTOL visualization
 
 This approach remains one of the most robust strategies for strain-level investigations in bacterial plant pathology.
 
-
 ## Choosing the Right Genomic Resolution
 
 The optimal methodology depends on the biological question:
 
-| Biological Question | Recommended Approach |
-|---|---|
-| What species is this? | ANI |
-| Is it correctly classified? | ANI + GTDB |
-| Which lineage does it belong to? | Pangenome analysis |
-| Is it related to other populations? | cgMLST |
-| Is it part of an outbreak? | wgMLST |
-| Are isolates nearly identical? | Core SNPs |
-| Which genes explain adaptation? | Pangenomics |
+| Biological Question                 | Recommended Approach |
+| ----------------------------------- | -------------------- |
+| What species is this?               | ANI                  |
+| Is it correctly classified?         | ANI + GTDB           |
+| Which lineage does it belong to?    | Pangenome analysis   |
+| Is it related to other populations? | cgMLST               |
+| Is it part of an outbreak?          | wgMLST               |
+| Are isolates nearly identical?      | Core SNPs            |
+| Which genes explain adaptation?     | Pangenomics          |
 
 No single method should be viewed as universally superior. Instead, complementary genomic approaches provide progressively finer resolution and biological insight.
 
@@ -338,11 +346,10 @@ By integrating ANI, pangenomics, MLST approaches, and core-genome SNP analyses, 
 
 As sequencing technologies continue to improve and genomic databases expand, the future challenge is no longer generating genomes. **The challenge is converting genomic data into biological understanding.**
 
-
 ## References
 
-1. Simão FA, Waterhouse RM, Ioannidis P, Kriventseva EV, Zdobnov EM. BUSCO: assessing genome assembly and annotation completeness with single-copy orthologs. *Bioinformatics*. 2015;31:3210–3212.
-2. Jain C, Rodriguez-R LM, Phillippy AM, Konstantinidis KT, Aluru S. High throughput ANI analysis of 90K prokaryotic genomes reveals clear species boundaries. *Nature Communications*. 2018.
-3. Hyun JC, Monk JM, Palsson BO. Comparative pangenomics: analysis of microbial pathogen pangenomes reveals conserved global structures of genetic and functional diversity. *BMC Genomics*. 2022.
-4. Croucher NJ, Page AJ, Connor TR, et al. Rapid phylogenetic analysis of large samples of recombinant bacterial whole genome sequences using Gubbins. *Nucleic Acids Research*. 2015.
-5. EURL Workshop 2025 – *WGS in Practice: Building Reliable Genomes for Plant Pathogen Diagnostics and Research*. Steve Baeyen.
+1. Simão FA, Waterhouse RM, Ioannidis P, Kriventseva EV, Zdobnov EM. BUSCO: assessing genome assembly and annotation completeness with single-copy orthologs. _Bioinformatics_. 2015;31:3210–3212.
+2. Jain C, Rodriguez-R LM, Phillippy AM, Konstantinidis KT, Aluru S. High throughput ANI analysis of 90K prokaryotic genomes reveals clear species boundaries. _Nature Communications_. 2018.
+3. Hyun JC, Monk JM, Palsson BO. Comparative pangenomics: analysis of microbial pathogen pangenomes reveals conserved global structures of genetic and functional diversity. _BMC Genomics_. 2022.
+4. Croucher NJ, Page AJ, Connor TR, et al. Rapid phylogenetic analysis of large samples of recombinant bacterial whole genome sequences using Gubbins. _Nucleic Acids Research_. 2015.
+5. EURL Workshop 2025 – _WGS in Practice: Building Reliable Genomes for Plant Pathogen Diagnostics and Research_. Steve Baeyen.
