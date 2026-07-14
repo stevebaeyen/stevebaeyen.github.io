@@ -227,7 +227,7 @@ One widely adopted platform is **chewBBACA**, which supports:
 These methods provide a practical compromise between ANI and SNP-level analyses.
 
 <p align="center">
-  <img src="/assets/img/MST_ST.jpg" alt="ChewBBACA" style="width: 600px;" />
+  <img src="/assets/img/MST_ST.png" alt="ChewBBACA" style="width: 600px;" />
 </p>
 
 ## Core Genome SNP Analysis
