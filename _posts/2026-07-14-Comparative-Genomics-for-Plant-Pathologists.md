@@ -52,7 +52,7 @@ BUSCO has become one of the most widely adopted tools for assessing assembly com
 Similarly, CheckM and CheckM2 estimate contamination and completeness based on lineage-specific marker genes, thereby identifying mixed cultures and problematic assemblies before comparative analyses are performed. Although CheckM2 is faster, CheckM estimates are still better and comparable with BUSCO genome completeness and contamination.
 
 <p align="center">
-  <img src="/assets/img/snakemakeQC.jpg" alt="Snakemake QC" style="width: 600px;" />
+  <img src="/assets/img/snakemake_QC.jpg" alt="Snakemake QC" style="width: 600px;" />
 </p>
 
 # Comparative Genomics as a Hierarchical Framework
